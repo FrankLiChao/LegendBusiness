@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BonusMoneyViewController" customModule="legend_business_ios" customModuleProvider="target">
+            <connections>
+                <outlet property="moneyTx" destination="UfV-Cq-Sd4" id="4eX-DE-Ozf"/>
+                <outlet property="tipLab" destination="Y7A-Js-5qc" id="5do-xr-9K0"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当前分红金额/元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGy-Ix-MDL">
+                    <rect key="frame" x="10" y="30" width="355" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Xdl-gn-h9x"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.27450980390000002" green="0.27450980390000002" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="分红金额不可少于1元" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UfV-Cq-Sd4">
+                    <rect key="frame" x="0.0" y="60" width="375" height="45"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="FDv-iN-DT5"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7A-Js-5qc">
+                    <rect key="frame" x="10" y="115" width="350" height="13"/>
+                    <attributedString key="attributedText">
+                        <fragment content="每月最多有一次申请机会，本月已修改，如需调整下月再来">
+                            <attributes>
+                                <color key="NSColor" red="0.89019607840000003" green="0.21960784310000001" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="13" name=".PingFangSC-Regular"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="4" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Y7A-Js-5qc" secondAttribute="trailing" constant="15" id="9Fv-xZ-P7h"/>
+                <constraint firstItem="Y7A-Js-5qc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="I7x-iz-uqu"/>
+                <constraint firstAttribute="trailing" secondItem="UfV-Cq-Sd4" secondAttribute="trailing" id="Px8-gk-zDg"/>
+                <constraint firstItem="UfV-Cq-Sd4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="caE-ac-AS7"/>
+                <constraint firstItem="oGy-Ix-MDL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="fRZ-wG-vT0"/>
+                <constraint firstItem="oGy-Ix-MDL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="iME-dp-zfP"/>
+                <constraint firstAttribute="trailing" secondItem="oGy-Ix-MDL" secondAttribute="trailing" constant="10" id="ncb-5L-aCr"/>
+                <constraint firstItem="UfV-Cq-Sd4" firstAttribute="top" secondItem="oGy-Ix-MDL" secondAttribute="bottom" constant="10" id="s1V-Vj-Kuf"/>
+                <constraint firstItem="Y7A-Js-5qc" firstAttribute="top" secondItem="UfV-Cq-Sd4" secondAttribute="bottom" constant="10" id="vfw-HW-Auc"/>
+            </constraints>
+            <point key="canvasLocation" x="-326" y="5"/>
+        </view>
+    </objects>
+</document>

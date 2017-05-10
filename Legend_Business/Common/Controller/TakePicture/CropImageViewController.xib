@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CropImageViewController">
+            <connections>
+                <outlet property="scrollView" destination="y7t-cf-evd" id="oCI-1v-dLQ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pWq-mT-eFg">
+                    <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HC9-el-DgF">
+                            <rect key="frame" x="10" y="0.0" width="60" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="trF-A6-bQS"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="取消"/>
+                            <connections>
+                                <action selector="clickCancel:" destination="-1" eventType="touchUpInside" id="lK8-Du-N3c"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pxk-6Z-MoS">
+                            <rect key="frame" x="530" y="0.0" width="60" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="Q1q-kj-4qv"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="选择"/>
+                            <connections>
+                                <action selector="clickSelect:" destination="-1" eventType="touchUpInside" id="bBv-GI-n6T"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Pxk-6Z-MoS" secondAttribute="bottom" id="3V5-oe-I0H"/>
+                        <constraint firstItem="HC9-el-DgF" firstAttribute="leading" secondItem="pWq-mT-eFg" secondAttribute="leading" constant="10" id="IL4-SJ-TQy"/>
+                        <constraint firstAttribute="bottom" secondItem="HC9-el-DgF" secondAttribute="bottom" id="ItO-Mv-uq5"/>
+                        <constraint firstItem="HC9-el-DgF" firstAttribute="top" secondItem="pWq-mT-eFg" secondAttribute="top" id="axQ-fE-epF"/>
+                        <constraint firstItem="Pxk-6Z-MoS" firstAttribute="top" secondItem="pWq-mT-eFg" secondAttribute="top" id="mTQ-YW-9e9"/>
+                        <constraint firstAttribute="trailing" secondItem="Pxk-6Z-MoS" secondAttribute="trailing" constant="10" id="p9f-Mm-ffA"/>
+                        <constraint firstAttribute="height" constant="50" id="wLe-Qh-BO6"/>
+                    </constraints>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y7t-cf-evd">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="pWq-mT-eFg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0b5-Mb-fmD"/>
+                <constraint firstItem="y7t-cf-evd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5Sg-Su-yT8"/>
+                <constraint firstAttribute="trailing" secondItem="y7t-cf-evd" secondAttribute="trailing" id="EHx-9u-i6X"/>
+                <constraint firstAttribute="trailing" secondItem="pWq-mT-eFg" secondAttribute="trailing" id="HVQ-Mu-o3h"/>
+                <constraint firstItem="pWq-mT-eFg" firstAttribute="top" secondItem="y7t-cf-evd" secondAttribute="bottom" id="Izw-40-w55"/>
+                <constraint firstItem="y7t-cf-evd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jVB-aK-AWb"/>
+                <constraint firstAttribute="bottom" secondItem="pWq-mT-eFg" secondAttribute="bottom" id="qta-Di-58Y"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddGoodsController">
+            <connections>
+                <outlet property="footView" destination="bNW-fW-4fw" id="Xyf-As-8Fc"/>
+                <outlet property="saveButton" destination="pYb-EB-ofH" id="Q0C-Fv-Tb9"/>
+                <outlet property="tableView" destination="7lw-jk-TCm" id="VaL-fv-aes"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7lw-jk-TCm">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <view key="tableFooterView" contentMode="scaleToFill" id="bNW-fW-4fw">
+                        <rect key="frame" x="0.0" y="603" width="375" height="64"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYb-EB-ofH">
+                                <rect key="frame" x="10" y="10" width="355" height="44"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.20392156859999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="保存并上架">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clikSaveButton:" destination="-1" eventType="touchUpInside" id="Wv6-TY-SIj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="pYb-EB-ofH" firstAttribute="top" secondItem="bNW-fW-4fw" secondAttribute="top" constant="10" id="Yg5-bt-2A7"/>
+                            <constraint firstItem="pYb-EB-ofH" firstAttribute="leading" secondItem="bNW-fW-4fw" secondAttribute="leading" constant="10" id="jJH-xV-Kz0"/>
+                            <constraint firstAttribute="trailing" secondItem="pYb-EB-ofH" secondAttribute="trailing" constant="10" id="tPR-6U-25T"/>
+                            <constraint firstAttribute="bottom" secondItem="pYb-EB-ofH" secondAttribute="bottom" constant="10" id="xPg-sC-j7F"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="CiS-mb-Tzc"/>
+                        <outlet property="delegate" destination="-1" id="ezp-fI-XeS"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="7lw-jk-TCm" secondAttribute="bottom" id="dHp-09-imC"/>
+                <constraint firstItem="7lw-jk-TCm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="lQW-15-kTh"/>
+                <constraint firstItem="7lw-jk-TCm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tH5-tE-Kez"/>
+                <constraint firstAttribute="trailing" secondItem="7lw-jk-TCm" secondAttribute="trailing" id="zeO-8S-BX1"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
