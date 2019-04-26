@@ -1,0 +1,6 @@
+framework module DKScrollingTabController {
+  umbrella header "DKScrollingTabController-umbrella.h"
+
+  export *
+  module * { export * }
+}

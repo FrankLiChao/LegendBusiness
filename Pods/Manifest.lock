@@ -30,17 +30,31 @@ PODS:
   - SDWebImage/Core (3.7.5)
 
 DEPENDENCIES:
-  - AFNetworking (~> 3.0.4)
-  - AlipaySDK-2.0 (~> 15.0.2)
-  - BaiduMapKit (~> 2.10.0)
-  - DKScrollingTabController (~> 1.2.1)
-  - IQKeyboardManager (~> 3.3.5)
-  - libWeChatSDK (~> 1.6)
-  - MBProgressHUD (~> 0.9.2)
-  - MJExtension (~> 3.0.10)
-  - MJRefresh (~> 3.1.0)
-  - PureLayout (~> 3.0.1)
-  - SDWebImage (~> 3.7.4)
+  - AFNetworking
+  - AlipaySDK-2.0
+  - BaiduMapKit
+  - DKScrollingTabController
+  - IQKeyboardManager
+  - libWeChatSDK
+  - MBProgressHUD
+  - MJExtension
+  - MJRefresh
+  - PureLayout
+  - SDWebImage
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - AlipaySDK-2.0
+    - BaiduMapKit
+    - DKScrollingTabController
+    - IQKeyboardManager
+    - libWeChatSDK
+    - MBProgressHUD
+    - MJExtension
+    - MJRefresh
+    - PureLayout
+    - SDWebImage
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
@@ -55,4 +69,6 @@ SPEC CHECKSUMS:
   PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 1479d5dcd846330312b35568639db7f296cd43d4
+
+COCOAPODS: 1.6.1

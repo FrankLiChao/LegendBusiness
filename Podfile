@@ -1,12 +1,19 @@
-platform:ios, '7.0'
-pod 'SDWebImage', '~> 3.7.4'
-pod 'MJExtension', '~> 3.0.10'
-pod 'MBProgressHUD', '~> 0.9.2'
-pod 'PureLayout', '~> 3.0.1'
-pod 'AFNetworking', '~> 3.0.4'
-pod 'BaiduMapKit', '~> 2.10.0'
-pod 'MJRefresh', '~> 3.1.0'
-pod 'DKScrollingTabController', '~> 1.2.1'
-pod 'libWeChatSDK', '~> 1.6'
-pod 'AlipaySDK-2.0', '~> 15.0.2'
-pod 'IQKeyboardManager', '~> 3.3.5'
+platform :ios, '9.0'
+inhibit_all_warnings!
+use_frameworks!
+
+
+target "legend_business_ios" do
+    pod 'SDWebImage'
+    pod 'MJExtension'
+    pod 'MBProgressHUD'
+    pod 'PureLayout'
+    pod 'AFNetworking'
+    pod 'BaiduMapKit'
+    pod 'MJRefresh'
+    pod 'DKScrollingTabController'
+    pod 'libWeChatSDK'
+    pod 'AlipaySDK-2.0'
+    pod 'IQKeyboardManager'
+
+end
