@@ -11,6 +11,7 @@
 #import "EdgeCell.h"
 #import "ExpressTableViewCell.h"
 #import "ScanQRViewController.h"
+#import "legend_business_ios-Swift.h"
 
 @interface OrderDetailController ()<UIAlertViewDelegate>
 

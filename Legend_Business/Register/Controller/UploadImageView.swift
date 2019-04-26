@@ -36,15 +36,15 @@ class UploadImageView: UIView {
         deleteButton = UIButton(type: .custom)
         deleteButton?.frame = CGRect(x: self.frame.size.width/2, y: 0, width: self.frame.size.width/2, height: self.frame.size.width/3);
         deleteButton?.backgroundColor = UIColor.clear;
-        deleteButton?.setImage(UIImage(named: "delete_black"), for:UIControlState())
+        deleteButton?.setImage(UIImage(named: "delete_black"), for:UIControl.State())
         deleteButton?.addTarget(self, action: #selector(UploadImageView.deleteImage(_:)), for: .touchUpInside)
         self.addSubview(deleteButton!)
         
         if self.imageData != nil {
-            self.imageButton?.setBackgroundImage(self.imageData, for: UIControlState())
+            self.imageButton?.setBackgroundImage(self.imageData, for: UIControl.State())
         }
         else if(imageURL != nil){
-            imageButton?.sd_setBackgroundImage(with: URL(myString: imageURL!), for: UIControlState())
+            imageButton?.sd_setBackgroundImage(with: URL(myString: imageURL!), for: UIControl.State())
         }
  
     }
@@ -56,7 +56,7 @@ class UploadImageView: UIView {
     class func creareWithImage(_ image: UIImage) -> UploadImageView{
     
         let instance = UploadImageView.init(frame: CGRect(x: 0, y: 0, width: Configure.SYS_UI_SCALE(53), height: Configure.SYS_UI_SCALE(53)))
-        instance.imageButton?.setBackgroundImage(image, for: UIControlState())
+        instance.imageButton?.setBackgroundImage(image, for: UIControl.State())
         return instance
     }
     
@@ -64,12 +64,12 @@ class UploadImageView: UIView {
         
         let instance = UploadImageView.init(frame: CGRect(x: 0, y: 0, width: Configure.SYS_UI_SCALE(53), height: Configure.SYS_UI_SCALE(53)))
         
-        instance.imageButton?.sd_setBackgroundImage(with: URL(myString: imageURL), for: UIControlState())
+        instance.imageButton?.sd_setBackgroundImage(with: URL(myString: imageURL), for: UIControl.State())
         
         return instance
     }
     
-    func showImageDetail(_ button : UIButton?){
+    @objc func showImageDetail(_ button : UIButton?){
     
         if delegate != nil {
             
@@ -79,7 +79,7 @@ class UploadImageView: UIView {
         }
     }
     
-    func deleteImage(_ button : UIButton?){
+    @objc func deleteImage(_ button : UIButton?){
     
         
         if delegate != nil {

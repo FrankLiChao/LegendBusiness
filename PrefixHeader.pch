@@ -13,7 +13,7 @@
 #import "UIViewController+HUD.h"
 #import "NSObject+Port.h"
 
-#import "legend_business_ios-swift.h"
+#import "legend_business_ios-Swift.h"
 
 
 #endif /* PrefixHeader_pch */

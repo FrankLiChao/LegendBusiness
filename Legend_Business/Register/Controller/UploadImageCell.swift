@@ -24,13 +24,13 @@ import UIKit
 
 class UploadImageCell: UITableViewCell , UploadImageViewDelegate{
     
-    weak var delegate:UploadImageCellDelegate?
+    @objc weak var delegate:UploadImageCellDelegate?
     
     let scrollView  =  UIScrollView()
     var contentArray : NSArray?
-    var cellIndex : IndexPath?
+    @objc var cellIndex : IndexPath?
     
-    convenience init(reuseIdentifier: String?,leadEdge:CGFloat) {
+    @objc convenience init(reuseIdentifier: String?,leadEdge:CGFloat) {
         
         self.init(style:.default,reuseIdentifier:reuseIdentifier)
         self.backgroundColor = UIColor.clear
@@ -54,7 +54,7 @@ class UploadImageCell: UITableViewCell , UploadImageViewDelegate{
     }
     
     
-    func setUIWithData(_ datas: NSArray?){ //CustomUploadImageView
+    @objc func setUIWithData(_ datas: NSArray?){ //CustomUploadImageView
         
         contentArray = datas;
         
@@ -98,7 +98,7 @@ class UploadImageCell: UITableViewCell , UploadImageViewDelegate{
         }
         let addImageButton = UIButton(type: .custom)
         addImageButton.backgroundColor = UIColor.white
-        addImageButton.setImage(UIImage(named: "add_button"), for: UIControlState())
+        addImageButton.setImage(UIImage(named: "add_button"), for: UIControl.State())
         addImageButton.frame = CGRect(x: contentW + Configure.SYS_UI_SCALE(15) , y: Configure.SYS_UI_SCALE(15), width: Configure.SYS_UI_SCALE(53), height: Configure.SYS_UI_SCALE(53))
         addImageButton.addTarget(self, action: #selector(UploadImageCell.addNewImage(_:)), for: .touchUpInside)
         UitlCommon.setFlat(view: addImageButton, radius: 0, borderColor: Configure.SYS_UI_COLOR_LINE_COLOR(), borderWidth: 1)
@@ -108,7 +108,7 @@ class UploadImageCell: UITableViewCell , UploadImageViewDelegate{
     }
     
     
-    func addNewImage(_ button : UIButton?){
+    @objc func addNewImage(_ button : UIButton?){
         
 
         if delegate != nil {
@@ -121,7 +121,7 @@ class UploadImageCell: UITableViewCell , UploadImageViewDelegate{
     }
     
     //UploadImageViewDelegate
-    func uploadCheckImageDetail( _ view: UploadImageView,index: NSInteger){
+    @objc func uploadCheckImageDetail( _ view: UploadImageView,index: NSInteger){
     
         if delegate != nil {
             
@@ -131,7 +131,7 @@ class UploadImageCell: UITableViewCell , UploadImageViewDelegate{
         }
         
     }
-    func upLoadImageDelete( _ view: UploadImageView,index: NSInteger){
+    @objc func upLoadImageDelete( _ view: UploadImageView,index: NSInteger){
         
         if delegate != nil {
             

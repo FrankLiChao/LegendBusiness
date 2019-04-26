@@ -24,7 +24,7 @@ class GoodsListHeaderView: UITableViewHeaderFooterView {
         return label
     }()
     
-    var isWarning: Bool = false {
+    @objc var isWarning: Bool = false {
         didSet {
             titleLabel.text = isWarning ? "库存预警产品" : "其他全部产品"
             bgImg.image = UIImage(named: isWarning ? "warning_bg" : "others_bg")

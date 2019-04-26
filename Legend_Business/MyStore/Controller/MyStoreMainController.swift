@@ -14,10 +14,10 @@ class MyStoreMainController: BaseViewController {
         
         self.title = "我的店铺"
         self.automaticallyAdjustsScrollViewInsets = false
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "test", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.clickTest))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "test", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.clickTest))
     }
     
-    func clickTest() -> Void {
+    @objc func clickTest() -> Void {
         let vc = WeekBonusViewController()
         self.navigationController?.pushViewController(vc,animated:true)
     }

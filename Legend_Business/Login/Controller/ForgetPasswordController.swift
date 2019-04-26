@@ -110,7 +110,7 @@ class ForgetPasswordController: BaseViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func verifySendTimer(_ timers : Timer){
+    @objc func verifySendTimer(_ timers : Timer){
         
         DispatchQueue.main.async { () -> Void in
             
@@ -121,10 +121,10 @@ class ForgetPasswordController: BaseViewController {
                 self.timer!.invalidate();
                 
                 self.isWaitingVerifyCode = false
-                self.sendSmSCodeButton?.setTitle("获取验证码", for: UIControlState())
+                self.sendSmSCodeButton?.setTitle("获取验证码", for: UIControl.State())
             }
             else{
-                self.sendSmSCodeButton?.setTitle(String(self.myCountdown!), for: UIControlState())
+                self.sendSmSCodeButton?.setTitle(String(self.myCountdown!), for: UIControl.State())
             }
         }
         
@@ -200,13 +200,13 @@ class ForgetPasswordController: BaseViewController {
                     
                     DispatchQueue.main.async { () -> Void in
                         
-                        self.sendSmSCodeButton?.setTitle(String(self.countdown), for: UIControlState())
+                        self.sendSmSCodeButton?.setTitle(String(self.countdown), for: UIControl.State())
                     }
                     
                     self.timer = Timer(timeInterval:1, target: self, selector: #selector(ForgetPasswordController.verifySendTimer(_:)), userInfo: nil, repeats: true)
                     let runloop = RunLoop.current
                     
-                    runloop.add(self.timer!, forMode:RunLoopMode.commonModes)
+                    runloop.add(self.timer!, forMode:.common)
                     runloop.run()
                     
                     

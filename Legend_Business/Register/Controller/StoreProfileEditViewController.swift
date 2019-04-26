@@ -107,7 +107,7 @@ class StoreProfileEditViewController: BaseViewController,UploadImageCellDelegate
     }
     
     
-    func logout(){
+    @objc func logout(){
         
         DefaultService.loginOut()
         
@@ -275,7 +275,7 @@ class StoreProfileEditViewController: BaseViewController,UploadImageCellDelegate
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         if section == 0{
-            let lable = InsetsLabel(frame:CGRect(x: 0,y: 0,width: Configure.SYS_UI_WINSIZE_WIDTH(),height: Configure.SYS_UI_SCALE(44)), insets: UIEdgeInsetsMake(0, 20, -5, 0))
+            let lable = InsetsLabel(frame:CGRect(x: 0,y: 0,width: Configure.SYS_UI_WINSIZE_WIDTH(),height: Configure.SYS_UI_SCALE(44)), insets: UIEdgeInsets(top: 0, left: 20, bottom: -5, right: 0))
             lable.backgroundColor = Configure.SYS_UI_COLOR_BG_COLOR()
             lable.font = UIFont.systemFont(ofSize: Configure.SYS_UI_SCALE(14))
             lable.textColor = Configure.SYS_UI_COLOR_TEXT_BLACK()
@@ -284,7 +284,7 @@ class StoreProfileEditViewController: BaseViewController,UploadImageCellDelegate
         }
         else if(section <= 4){
             
-            let lable = InsetsLabel(frame:CGRect(x: 0,y: 0,width: Configure.SYS_UI_WINSIZE_WIDTH(),height: Configure.SYS_UI_SCALE(44)), insets: UIEdgeInsetsMake(0, 20, -5, 0))
+            let lable = InsetsLabel(frame:CGRect(x: 0,y: 0,width: Configure.SYS_UI_WINSIZE_WIDTH(),height: Configure.SYS_UI_SCALE(44)), insets: UIEdgeInsets(top: 0, left: 20, bottom: -5, right: 0))
             lable.backgroundColor = Configure.SYS_UI_COLOR_BG_COLOR()
             lable.font = UIFont.systemFont(ofSize: Configure.SYS_UI_SCALE(14))
             lable.textColor = Configure.SYS_UI_COLOR_TEXT_BLACK()
@@ -313,16 +313,16 @@ class StoreProfileEditViewController: BaseViewController,UploadImageCellDelegate
             }
             
             let attr = NSMutableAttributedString(string: (str1 as! String) + (str2 as! String))
-            attr.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: Configure.SYS_FONT_SCALE(14)), range: NSMakeRange(0, str1!.length))
-            attr.addAttribute(NSForegroundColorAttributeName, value:Configure.SYS_UI_COLOR_TEXT_BLACK() , range: NSMakeRange(0, str1!.length))
+            attr.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: Configure.SYS_FONT_SCALE(14)), range: NSMakeRange(0, str1!.length))
+            attr.addAttribute(NSAttributedString.Key.foregroundColor, value:Configure.SYS_UI_COLOR_TEXT_BLACK() , range: NSMakeRange(0, str1!.length))
             
-            attr.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: Configure.SYS_FONT_SCALE(12)), range: NSMakeRange( str1!.length, str2!.length))
-            attr.addAttribute(NSForegroundColorAttributeName, value:Configure.SYS_UI_COLOR_TEXT_GRAY() , range: NSMakeRange( str1!.length, str2!.length))
+            attr.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: Configure.SYS_FONT_SCALE(12)), range: NSMakeRange( str1!.length, str2!.length))
+            attr.addAttribute(NSAttributedString.Key.foregroundColor, value:Configure.SYS_UI_COLOR_TEXT_GRAY() , range: NSMakeRange( str1!.length, str2!.length))
             
             let paragraphStyle  = NSMutableParagraphStyle()
             paragraphStyle.lineSpacing = 5.0
             
-            attr.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSMakeRange(0,str1!.length + str2!.length))
+            attr.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0,str1!.length + str2!.length))
             lable.attributedText = attr
             
             

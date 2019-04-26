@@ -29,7 +29,7 @@ class GoodListCell: UITableViewCell {
     @IBOutlet weak var promoteBtn: UIButton!
     @IBOutlet weak var deleteBtn: UIButton!
     
-    var delegate: GoodListCellDelegate?
+    @objc var delegate: GoodListCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -53,11 +53,11 @@ class GoodListCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func handleEditEvent(_ sender: UIButton) {
+    @objc func handleEditEvent(_ sender: UIButton) {
         self.delegate?.goodsListCellTapEditBtn(cell: self)
     }
     
-    func handleDownEvent(_ sender: UIButton) {
+    @objc func handleDownEvent(_ sender: UIButton) {
         if sender.currentTitle == "下架" {
             self.delegate?.goodsListCellTapDownBtn(cell: self)
         } else if sender.currentTitle == "上架" {
@@ -65,11 +65,11 @@ class GoodListCell: UITableViewCell {
         }
     }
     
-    func handlePromoteEvent(_ sender: UIButton) {
+    @objc func handlePromoteEvent(_ sender: UIButton) {
         self.delegate?.goodsListCellTapPromoteBtn(cell: self)
     }
     
-    func handleDeleteEvent(_ sender: UIButton) {
+    @objc func handleDeleteEvent(_ sender: UIButton) {
         self.delegate?.goodsListCellTapDeleteBtn(cell: self)
     }
 }

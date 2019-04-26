@@ -301,7 +301,7 @@ class CashViewController: BaseViewController ,UIAlertViewDelegate{
     
     // MARK - Notify
     
-    func recieveBankListChanged(){
+    @objc func recieveBankListChanged(){
     
         loadMyBankList()
     }

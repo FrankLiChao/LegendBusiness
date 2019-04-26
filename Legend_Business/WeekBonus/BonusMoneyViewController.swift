@@ -31,16 +31,16 @@ class BonusMoneyViewController: BaseViewController,SettingDelegate {
         self.title = "分红金额"
         self.setBackButton()
         if self.isSet == true {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "申请修改", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.modifyEvent))
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "申请修改", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.modifyEvent))
         }else {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "保存", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.clickSaveEvent))
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "保存", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.clickSaveEvent))
         }
         
         
         let leftview = UIImageView(image: UIImage(named: "normalImage"))
         leftview.frame = CGRect(x: 0, y: 0, width: 10.0, height: 10.0)
         self.moneyTx.backgroundColor = UIColor.white
-        self.moneyTx.leftViewMode = UITextFieldViewMode.always
+        self.moneyTx.leftViewMode = UITextField.ViewMode.always
         self.moneyTx.leftView = leftview
         self.loadData()
     }
@@ -84,7 +84,7 @@ class BonusMoneyViewController: BaseViewController,SettingDelegate {
         self.moneyTx.text = self.weekBonusModel.endorse_money
     }
     
-    func modifyEvent() -> Void {
+    @objc func modifyEvent() -> Void {
         if Int(self.weekBonusModel.status) == 0{
             FrankTools.showMessage("申请审核中，请勿重复提交")
             return
@@ -92,14 +92,14 @@ class BonusMoneyViewController: BaseViewController,SettingDelegate {
         
         let nib = UINib(nibName: "SettingView", bundle: nil)
         let view:SettingView = nib.instantiate(withOwner: self, options: nil)[0] as! SettingView
-        view.backgroundColor = UIColor.init(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.5)
+        view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
         view.frame = CGRect(x: 0, y: 0, width:self.view.frame.width , height:self.view.frame.height)
         view.type = 1
         view.delegate = self
         self.view.addSubview(view)
     }
     
-    func clickSaveEvent() -> Void {
+    @objc func clickSaveEvent() -> Void {
         self.view.endEditing(true)
         if !self.moneyTx.text!.isEmpty{
             self.textFieldValue = self.moneyTx.text
@@ -127,21 +127,5 @@ class BonusMoneyViewController: BaseViewController,SettingDelegate {
             self.tipLab.text =  errDic["error_msg"] as! String?
         })
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

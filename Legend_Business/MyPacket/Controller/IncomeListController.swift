@@ -138,7 +138,7 @@ class IncomeListController: BaseViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let model = dataList.object(at: section) as! CashHistoryModel
-        let lable = InsetsLabel(frame:CGRect(x: 0,y: 0,width: Configure.SYS_UI_WINSIZE_WIDTH(),height: 30), insets: UIEdgeInsetsMake(0, 10, 0, 0))
+        let lable = InsetsLabel(frame:CGRect(x: 0,y: 0,width: Configure.SYS_UI_WINSIZE_WIDTH(),height: 30), insets: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0))
         lable.backgroundColor = Configure.SYS_UI_COLOR_BG_COLOR()
         lable.font = UIFont.systemFont(ofSize: Configure.SYS_UI_SCALE(15))
         lable.textColor = Configure.SYS_UI_COLOR_TEXT_GRAY()

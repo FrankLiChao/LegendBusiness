@@ -8,7 +8,7 @@
 
 #import "ModefyBackNameViewController.h"
 #import "UIViewController+HUD.h"
-#import "legend_business_ios-swift.h"
+#import "legend_business_ios-Swift.h"
 
 
 @interface ModefyBackNameViewController (){

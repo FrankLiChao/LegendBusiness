@@ -127,7 +127,7 @@ class LoginViewController: BaseViewController {
     }
     
     
-    func handelTapBack(){
+    @objc func handelTapBack(){
         
         if (nameField?.isFirstResponder) != nil {
             nameField?.resignFirstResponder()

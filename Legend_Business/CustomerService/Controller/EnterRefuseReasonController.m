@@ -40,6 +40,7 @@
         default:
             break;
     }
+
     [UitlCommon setFlatWithView:_doneButton radius:[Configure SYS_CORNERRADIUS]];
     _doneButtonHeight.constant = [Configure SYS_UI_BUTTON_HEIGHT];
     _doneButton.titleLabel.font = [Configure SYS_UI_BUTTON_FONT];

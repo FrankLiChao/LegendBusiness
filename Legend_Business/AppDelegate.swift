@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //    }
     
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.logout), name: NSNotification.Name(rawValue: SYS_NOTI_NEED_LOGIN), object: nil)
@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    func logout(){
+    @objc func logout(){
         DefaultService.loginOut()
     }
 

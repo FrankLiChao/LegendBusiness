@@ -37,7 +37,7 @@ class SotreInfoController: BaseViewController, TypeSelectControllerDelegate, UIT
         
         //tableView?.tableFooterView = UIView()
         tableView.separatorColor = Configure.SYS_UI_COLOR_LINE_COLOR()
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 50
         addModelObserver()
     }

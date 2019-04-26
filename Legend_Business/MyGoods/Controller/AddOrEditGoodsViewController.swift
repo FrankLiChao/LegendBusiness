@@ -16,7 +16,7 @@ class AddOrEditGoodsViewController: BaseViewController, UITableViewDataSource, U
     weak var shippingFeeTextField: UITextField!
     weak var shippingFreeTextField: UITextField!
     
-    var goods_id: Int = 0
+    @objc var goods_id: Int = 0
     var currentGoods: ProductModel?
     var tempImages: [UIImage] = []
     var tempImageURLs: [String] = []
@@ -114,7 +114,7 @@ class AddOrEditGoodsViewController: BaseViewController, UITableViewDataSource, U
     }
     
     //MARK: - Custom
-    func saveBtnClicked(_ sender: UIButton) {
+    @objc func saveBtnClicked(_ sender: UIButton) {
         self.view.endEditing(true)
         
         func showAlertWithMessage(_ message: String) {
@@ -224,7 +224,7 @@ class AddOrEditGoodsViewController: BaseViewController, UITableViewDataSource, U
         }
     }
     
-    func toggleEndorseSwitch(_ sender: UISwitch) {
+    @objc func toggleEndorseSwitch(_ sender: UISwitch) {
         self.view.endEditing(true)
         
         if sender.isOn == false {
@@ -242,13 +242,13 @@ class AddOrEditGoodsViewController: BaseViewController, UITableViewDataSource, U
         self.currentGoods!.is_endorse = sender.isOn
     }
     
-    func addNewAttr(_ sender: UIButton) {
+    @objc func addNewAttr(_ sender: UIButton) {
         self.view.endEditing(true)
         self.tempAttributes.append(ProductAttrModel())
         self.tableView.reloadData()
     }
     
-    func deleteAttr(_ sender: UIButton) {
+    @objc func deleteAttr(_ sender: UIButton) {
         self.view.endEditing(true)
         if self.tempAttributes.count <= 1 {
             let alert = UIAlertView(title: "提示", message: "请至少保留一个规格", delegate: nil, cancelButtonTitle: "确定")
@@ -345,7 +345,7 @@ class AddOrEditGoodsViewController: BaseViewController, UITableViewDataSource, U
                 let cell = tableView.dequeueReusableCell(withIdentifier: "GoodsInfoTableViewCell") as! GoodsInfoTableViewCell
                 cell.titleLabel.text = "商品名称"
                 cell.infoTextField.text = self.currentGoods?.goods_name ?? nil
-                cell.infoTextField.attributedPlaceholder = NSAttributedString(string: "请输入商品名称", attributes: [NSForegroundColorAttributeName: Configure.SYS_UI_COLOR_PLACEHOLDER()])
+                cell.infoTextField.attributedPlaceholder = NSAttributedString(string: "请输入商品名称", attributes: [NSAttributedString.Key.foregroundColor: Configure.SYS_UI_COLOR_PLACEHOLDER()])
                 cell.infoTextField.textAlignment = .right
                 cell.infoTextField.textColor = Configure.SYS_UI_COLOR_TEXT_GRAY()
                 cell.line.isHidden = false
@@ -359,7 +359,7 @@ class AddOrEditGoodsViewController: BaseViewController, UITableViewDataSource, U
                 let cell = tableView.dequeueReusableCell(withIdentifier: "GoodsInfoTableViewCell") as! GoodsInfoTableViewCell
                 cell.titleLabel.text = "展示价格"
                 cell.infoTextField.text = self.currentGoods?.shop_price ?? nil
-                cell.infoTextField.attributedPlaceholder = NSAttributedString(string: "请输入展示价格", attributes: [NSForegroundColorAttributeName: Configure.SYS_UI_COLOR_PLACEHOLDER()])
+                cell.infoTextField.attributedPlaceholder = NSAttributedString(string: "请输入展示价格", attributes: [NSAttributedString.Key.foregroundColor: Configure.SYS_UI_COLOR_PLACEHOLDER()])
                 cell.infoTextField.textAlignment = .right
                 cell.infoTextField.textColor = Configure.SYS_UI_COLOR_BG_RED()
                 cell.line.isHidden = false
@@ -444,7 +444,7 @@ class AddOrEditGoodsViewController: BaseViewController, UITableViewDataSource, U
             if indexPath.row == 0 {
                 cell.titleLabel.text = "邮费"
                 cell.infoTextField.text = self.currentGoods?.shipping ?? nil
-                cell.infoTextField.attributedPlaceholder = NSAttributedString(string: "请输入邮费", attributes: [NSForegroundColorAttributeName: Configure.SYS_UI_COLOR_PLACEHOLDER()])
+                cell.infoTextField.attributedPlaceholder = NSAttributedString(string: "请输入邮费", attributes: [NSAttributedString.Key.foregroundColor: Configure.SYS_UI_COLOR_PLACEHOLDER()])
                 cell.line.isHidden = false
                 cell.infoTextField.keyboardType = .decimalPad
                 cell.infoTextField.delegate = self
@@ -454,7 +454,7 @@ class AddOrEditGoodsViewController: BaseViewController, UITableViewDataSource, U
             } else {
                 cell.titleLabel.text = "满额包邮"
                 cell.infoTextField.text = self.currentGoods?.shipping_free ?? nil
-                cell.infoTextField.attributedPlaceholder = NSAttributedString(string: "请输入包邮金额", attributes: [NSForegroundColorAttributeName: Configure.SYS_UI_COLOR_PLACEHOLDER()])
+                cell.infoTextField.attributedPlaceholder = NSAttributedString(string: "请输入包邮金额", attributes: [NSAttributedString.Key.foregroundColor: Configure.SYS_UI_COLOR_PLACEHOLDER()])
                 cell.line.isHidden = true
                 cell.infoTextField.keyboardType = .decimalPad
                 cell.infoTextField.delegate = self
@@ -561,8 +561,8 @@ class AddOrEditGoodsViewController: BaseViewController, UITableViewDataSource, U
     }
     
     //MARK: - UIImagePickerControllerDelegate
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let editImage = info[UIImagePickerControllerEditedImage] as? UIImage {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let editImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             self.tempImages.append(editImage)
             self.tempImageURLs.append("")
             let index = self.tempImages.index(of: editImage)!
@@ -648,7 +648,7 @@ extension UIImage {
         let newSize = self.scaleImage(with: maxSize)
         let newImage = self.resizeImage(with: newSize)
         let compress: CGFloat = 0.9
-        let data = UIImageJPEGRepresentation(newImage, compress)
+        let data = newImage.jpegData(compressionQuality: compress)
 //        while (data?.count)! > maxLength && compress > 0.01 {
 //            compress -= 0.02
 //            data = UIImageJPEGRepresentation(newImage, compress)

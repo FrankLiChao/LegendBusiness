@@ -9,7 +9,6 @@
 #import "StockWarningViewController.h"
 #import "AddPromotionController.h"
 
-
 @interface StockWarningViewController () <UITableViewDataSource, UITableViewDelegate, GoodListCellDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;

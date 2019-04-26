@@ -42,7 +42,7 @@ class GoodsImagesTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     }
     
     //MARK: - Custom
-    func handleDeleteBtnEvent(_ sender: UIButton) {
+    @objc func handleDeleteBtnEvent(_ sender: UIButton) {
         let index = sender.tag
         self.delegate?.goodsImagesTableViewCell(self, didTappedDeleteBtnAt: index)
     }
@@ -145,7 +145,7 @@ class GoodsImagesCollectionViewCell: UICollectionViewCell {
     }
     
     //MARK: - Custom
-    func handleProgresChanged(_ noti: Notification) {
+    @objc func handleProgresChanged(_ noti: Notification) {
         if let userInfo = noti.userInfo {
             if let index = userInfo["index"] as? Int {
                 if index == self.currentIndex {

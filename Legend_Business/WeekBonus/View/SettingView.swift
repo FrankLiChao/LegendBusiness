@@ -56,13 +56,13 @@ class SettingView: UIView {
         self.alterView.layer.masksToBounds = true
     }
     
-    func clickCancelBtn() {
+    @objc func clickCancelBtn() {
         self.endEditing(true)
         self.alterView.removeFromSuperview()
         self.removeFromSuperview()
     }
     
-    func clickSureButton() {
+    @objc func clickSureButton() {
         self.endEditing(true)
         if self.setTextTx.text?.isEmpty == false {
             self.delegate?.setWeekBonusValue(type: self.type!, value:self.setTextTx.text!)

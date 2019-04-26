@@ -32,15 +32,15 @@ class EndorseCycleViewController: BaseViewController,SettingDelegate{
         self.title = "代言周期"
         self.setBackButton()
         if self.isSet == true{
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "申请修改", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.modifyEvent))
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "申请修改", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.modifyEvent))
         }else{
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "保存", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.clickSaveEvent))
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "保存", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.clickSaveEvent))
         }
         
         let leftview = UIImageView(image: UIImage(named: "normalImage"))
         leftview.frame = CGRect(x: 0, y: 0, width: 10, height: 10)
         self.endorseField.backgroundColor = UIColor.white
-        self.endorseField.leftViewMode = UITextFieldViewMode.always
+        self.endorseField.leftViewMode = UITextField.ViewMode.always
         self.endorseField.leftView = leftview
         
         self.endorseField.text = self.darStr
@@ -80,7 +80,7 @@ class EndorseCycleViewController: BaseViewController,SettingDelegate{
         self.tipLab.text = self.weekBonusModel.msg
     }
     
-    func modifyEvent() -> Void {
+    @objc func modifyEvent() -> Void {
         if Int(self.weekBonusModel.status) == 0{
             FrankTools.showMessage("申请审核中，请勿重复提交")
             return
@@ -88,14 +88,14 @@ class EndorseCycleViewController: BaseViewController,SettingDelegate{
         
         let nib = UINib(nibName: "SettingView", bundle: nil)
         let view:SettingView = nib.instantiate(withOwner: self, options: nil)[0] as! SettingView
-        view.backgroundColor = UIColor.init(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.5)
+        view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
         view.frame = CGRect(x: 0, y: 0, width:self.view.frame.width , height:self.view.frame.height)
         view.type = 0
         view.delegate = self
         self.view.addSubview(view)
     }
     
-    func clickSaveEvent() -> Void {
+    @objc func clickSaveEvent() -> Void {
         print("点击保存按钮")
         self.view.endEditing(true)
         if !self.endorseField.text!.isEmpty{

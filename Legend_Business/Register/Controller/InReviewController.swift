@@ -91,7 +91,7 @@ class InReviewController: BaseViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
     
-    func logout(){
+    @objc func logout(){
      
         DefaultService.loginOut()
     

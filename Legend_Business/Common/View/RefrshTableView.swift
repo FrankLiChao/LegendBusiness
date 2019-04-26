@@ -14,7 +14,7 @@ typealias footerRefreshBlock = (MJRefreshFooter) -> Void
 extension UITableView {
 
     
-    func addRefreshHeader( _ block : @escaping headerRefreshBlock){
+    @objc func addRefreshHeader( _ block : @escaping headerRefreshBlock){
     
         
          self.mj_header =  MJRefreshNormalHeader(refreshingBlock: { () -> Void in
@@ -26,7 +26,7 @@ extension UITableView {
         
     }
     
-    func addRefreshFooter(_ block : @escaping footerRefreshBlock){
+    @objc func addRefreshFooter(_ block : @escaping footerRefreshBlock){
     
         self.mj_footer = MJRefreshAutoFooter(refreshingBlock: { () -> Void in
             

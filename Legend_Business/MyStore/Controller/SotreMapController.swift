@@ -98,7 +98,7 @@ class SotreMapController: BaseViewController,BMKGeoCodeSearchDelegate,BMKGeneral
         super.viewWillDisappear(animated)
     }
     
-    func longPressAction(_ gesture: UIGestureRecognizer){//添加新地址
+    @objc func longPressAction(_ gesture: UIGestureRecognizer){//添加新地址
         
         if gesture.state == .ended{ return }
         
@@ -125,7 +125,7 @@ class SotreMapController: BaseViewController,BMKGeoCodeSearchDelegate,BMKGeneral
         
     }
     
-    func showOldAddress(){
+    @objc func showOldAddress(){
         
         if self.oldAddress == nil {
             
@@ -203,7 +203,7 @@ class SotreMapController: BaseViewController,BMKGeoCodeSearchDelegate,BMKGeneral
         
     }
     
-    func clickSave(){
+    @objc func clickSave(){
         if contentModel != nil && contentModel!.isKind(of: UserInfoModel.self) && self.addressModel != nil{
             let model = contentModel as! UserInfoModel
             let str = addressModel?.mj_JSONString()
@@ -279,7 +279,7 @@ class SotreMapController: BaseViewController,BMKGeoCodeSearchDelegate,BMKGeneral
             oldAnnotation = MyAnnotation(coordinates: result.location, title: result.address, subTitle: result.address)
             mapView!.addAnnotation(oldAnnotation!)
             
-            mapView?.setRegion(MKCoordinateRegion(center: result.location, span: MKCoordinateSpanMake(0.01, 0.01)), animated: true)
+            mapView?.setRegion(MKCoordinateRegion(center: result.location, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
         }
         
         
@@ -299,7 +299,7 @@ class SotreMapController: BaseViewController,BMKGeoCodeSearchDelegate,BMKGeneral
                 oldAnnotation = MyAnnotation(coordinates: result.location, title: result.address, subTitle: nil)
                 mapView!.addAnnotation(oldAnnotation!)
                 
-                mapView?.setRegion(MKCoordinateRegion(center: result.location, span: MKCoordinateSpanMake(0.01, 0.01)), animated: true)
+                mapView?.setRegion(MKCoordinateRegion(center: result.location, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
             }
             else{
                 

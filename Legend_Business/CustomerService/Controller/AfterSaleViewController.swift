@@ -74,7 +74,7 @@ class AfterSaleViewController: BaseViewController,UITableViewDelegate,UITableVie
         self.myTableView.mj_footer.endRefreshing()
     }
     
-    func clickSegValueChange(seg:UISegmentedControl) -> Void {
+    @objc func clickSegValueChange(seg:UISegmentedControl) -> Void {
         print(seg.selectedSegmentIndex)
         self.afterSaleStatus = seg.selectedSegmentIndex+1
         self.loadData()
@@ -167,9 +167,9 @@ class AfterSaleViewController: BaseViewController,UITableViewDelegate,UITableVie
         self.myTableView.register(UINib (nibName: "AfterSaleTableViewCell", bundle: nil), forCellReuseIdentifier: "AfterSaleTableViewCell")
         self.myTableView.showsVerticalScrollIndicator = false
         myTableView.separatorColor = self.seperateColor()
-        myTableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        myTableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.myTableView.estimatedRowHeight = 200;
-        self.myTableView.rowHeight = UITableViewAutomaticDimension;
+        self.myTableView.rowHeight = UITableView.automaticDimension;
         self.view.addSubview(self.myTableView)
         
         self.myTableView.tableFooterView = UIView()

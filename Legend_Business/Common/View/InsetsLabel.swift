@@ -11,7 +11,7 @@ import UIKit
 class InsetsLabel: UILabel {
 
   
-    var insets :UIEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+    var insets :UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     
     convenience init(frame: CGRect, insets:UIEdgeInsets){
      
@@ -20,6 +20,7 @@ class InsetsLabel: UILabel {
     }
     
     override func drawText(in rect: CGRect) {
-        super.drawText(in: UIEdgeInsetsInsetRect(rect, self.insets))
+//        super.drawText(in: UIEdgeInsetsInsetRect(rect, self.insets))
+        super.drawText(in: rect.inset(by: self.insets))
     }
 }

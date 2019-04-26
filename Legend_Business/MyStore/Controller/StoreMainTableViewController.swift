@@ -83,10 +83,10 @@ class StoreMainTableViewController: UITableViewController {
     }
     
     //MARK: - Notify
-    func updateUserInfo(_ notify: Notification?){
+    @objc func updateUserInfo(_ notify: Notification?){
         let userInfo = SaveEngine.getUserInfo()
         if  userInfo != nil {
-            storeLogoButton?.sd_setBackgroundImage(with: URL(string: (userInfo?.thumb_img)!), for: UIControlState(), placeholderImage: UIImage(named: "默认"))
+            storeLogoButton?.sd_setBackgroundImage(with: URL(string: (userInfo?.thumb_img)!), for: UIControl.State(), placeholderImage: UIImage(named: "默认"))
             self.storeNameLabel?.text = userInfo!.seller_name
             self.sellerIDLabel?.text = userInfo!.seller_id
             self.incomeLabel?.text = "¥" + "\((userInfo?.today_money)!)"

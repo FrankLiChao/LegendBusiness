@@ -51,6 +51,7 @@
 		019A2A2F1DE6F33A0057C63B /* RefuseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 019A2A2D1DE6F33A0057C63B /* RefuseViewController.xib */; };
 		01F438381DE5D1BB0095F943 /* AfterSaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F438361DE5D1BB0095F943 /* AfterSaleViewController.swift */; };
 		01F438391DE5D1BB0095F943 /* AfterSaleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01F438371DE5D1BB0095F943 /* AfterSaleViewController.xib */; };
+		157698D22272F878007CAB2B /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 157698D12272F878007CAB2B /* libc++.tbd */; };
 		350EB6441DF0057600D16782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 350EB6431DF0057600D16782 /* Main.storyboard */; };
 		3514F99F1DE957F7007A3356 /* JSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3514F99E1DE957F7007A3356 /* JSONParser.m */; };
 		3514F9A21DE98573007A3356 /* StockWarningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3514F9A11DE98573007A3356 /* StockWarningViewController.m */; };
@@ -326,6 +327,7 @@
 		01F438361DE5D1BB0095F943 /* AfterSaleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AfterSaleViewController.swift; sourceTree = "<group>"; };
 		01F438371DE5D1BB0095F943 /* AfterSaleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AfterSaleViewController.xib; sourceTree = "<group>"; };
 		0C81CB865880BF2A833BC1AF /* Pods_legend_business_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_legend_business_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		157698D12272F878007CAB2B /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		350EB6431DF0057600D16782 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3514F99D1DE957F7007A3356 /* JSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONParser.h; sourceTree = "<group>"; };
 		3514F99E1DE957F7007A3356 /* JSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONParser.m; sourceTree = "<group>"; };
@@ -641,6 +643,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				157698D22272F878007CAB2B /* libc++.tbd in Frameworks */,
 				E2D727111C8EA78C005C22AA /* libz.tbd in Frameworks */,
 				E2D7270F1C8EA780005C22AA /* SystemConfiguration.framework in Frameworks */,
 				E2D7270D1C8EA772005C22AA /* CoreTelephony.framework in Frameworks */,
@@ -735,6 +738,7 @@
 		258EE72E786FB0123613AB06 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				157698D12272F878007CAB2B /* libc++.tbd */,
 				E2D727101C8EA78C005C22AA /* libz.tbd */,
 				E2D7270E1C8EA780005C22AA /* SystemConfiguration.framework */,
 				E2D7270C1C8EA772005C22AA /* CoreTelephony.framework */,
@@ -2121,6 +2125,68 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Legend_Business/ThirdPart/AlipaySDK",
 					"$(PROJECT_DIR)/Legend_Business/ThirdPart/WeChat",
+					"$(PROJECT_DIR)/Legend_Business",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"WeChatSDK\"",
+					"-l\"c++\"",
+					"-l\"sqlite3.0\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"AlipaySDK\"",
+					"-framework",
+					"\"BaiduMapAPI_Base\"",
+					"-framework",
+					"\"BaiduMapAPI_Cloud\"",
+					"-framework",
+					"\"BaiduMapAPI_Location\"",
+					"-framework",
+					"\"BaiduMapAPI_Map\"",
+					"-framework",
+					"\"BaiduMapAPI_Radar\"",
+					"-framework",
+					"\"BaiduMapAPI_Search\"",
+					"-framework",
+					"\"BaiduMapAPI_Utils\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreMotion\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"DKScrollingTabController\"",
+					"-framework",
+					"\"IQKeyboardManager\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"MJExtension\"",
+					"-framework",
+					"\"MJRefresh\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"PureLayout\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-lstdc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.msb360.legendbusiness;
 				PRODUCT_NAME = legend_business_ios;
@@ -2130,6 +2196,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64e arm64";
 			};
 			name = Debug;
 		};
@@ -2170,6 +2237,68 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Legend_Business/ThirdPart/AlipaySDK",
 					"$(PROJECT_DIR)/Legend_Business/ThirdPart/WeChat",
+					"$(PROJECT_DIR)/Legend_Business",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"WeChatSDK\"",
+					"-l\"c++\"",
+					"-l\"sqlite3.0\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"AlipaySDK\"",
+					"-framework",
+					"\"BaiduMapAPI_Base\"",
+					"-framework",
+					"\"BaiduMapAPI_Cloud\"",
+					"-framework",
+					"\"BaiduMapAPI_Location\"",
+					"-framework",
+					"\"BaiduMapAPI_Map\"",
+					"-framework",
+					"\"BaiduMapAPI_Radar\"",
+					"-framework",
+					"\"BaiduMapAPI_Search\"",
+					"-framework",
+					"\"BaiduMapAPI_Utils\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreMotion\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"DKScrollingTabController\"",
+					"-framework",
+					"\"IQKeyboardManager\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"MJExtension\"",
+					"-framework",
+					"\"MJRefresh\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"PureLayout\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-lstdc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.msb360.legendbusiness;
 				PRODUCT_NAME = legend_business_ios;
@@ -2177,6 +2306,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Legend_Business-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64e arm64";
 			};
 			name = Release;
 		};

@@ -31,16 +31,16 @@ extension UIButton {
     
         self.backgroundColor = UIColor.clear
 
-        self.setImage(image, for: UIControlState())
-        self.setTitle(title, for: UIControlState())
+        self.setImage(image, for: UIControl.State())
+        self.setTitle(title, for: UIControl.State())
 
         let str = title as NSString
         var titleSize = str.size(with: self.titleLabel?.font, byHeight: 20)
         if titleSize.width > self.frame.size.width { titleSize.width = self.frame.size.width}
         
         
-        self.imageEdgeInsets = UIEdgeInsetsMake(-15,0,0,-titleSize.width)//设置image在button上的位置
-        self.titleEdgeInsets = UIEdgeInsetsMake(image.size.height + 10, -image.size.width, 0, 0);//设置title在button上的位置
+        self.imageEdgeInsets = UIEdgeInsets(top: -15,left: 0,bottom: 0,right: -titleSize.width)//设置image在button上的位置
+        self.titleEdgeInsets = UIEdgeInsets(top: image.size.height + 10, left: -image.size.width, bottom: 0, right: 0);//设置title在button上的位置
         
     }
 }

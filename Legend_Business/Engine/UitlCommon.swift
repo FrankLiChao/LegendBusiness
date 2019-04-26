@@ -13,20 +13,20 @@ import Foundation
 
 class UitlCommon: NSObject {
 
-    class func UIColorFromRGB(_ value: NSInteger) -> UIColor{
+    @objc class func UIColorFromRGB(_ value: NSInteger) -> UIColor{
     
         let color = UIColor(red: ((CGFloat)((value & 0xFF0000) >> 16))/255.0, green: ((CGFloat)((value & 0xFF00) >> 8))/255.0, blue: ((CGFloat)(value & 0xFF))/255.0, alpha:1)
         return color
     }
     
-    class  func setFlat(view v: UIView, radius: CGFloat) {
+    @objc class  func setFlat(view v: UIView, radius: CGFloat) {
         
         let downButtonLayer = v.layer
         downButtonLayer.masksToBounds = true
         downButtonLayer.cornerRadius = radius
     }
     
-    class  func setFlat(view v: UIView, radius: CGFloat, borderColor: UIColor, borderWidth: CGFloat) {
+    @objc class func setFlat(view v: UIView, radius: CGFloat, borderColor: UIColor, borderWidth: CGFloat) {
         
         let downButtonLayer = v.layer
         downButtonLayer.masksToBounds = true
@@ -35,7 +35,7 @@ class UitlCommon: NSObject {
         downButtonLayer.borderWidth = borderWidth
     }
     
-    class func setDashedFlat(view v: UIView, radius: CGFloat, borderColor: UIColor, borderWidth: CGFloat, bounds: CGRect) {//虚线
+    @objc class func setDashedFlat(view v: UIView, radius: CGFloat, borderColor: UIColor, borderWidth: CGFloat, bounds: CGRect) {//虚线
         
 
         let downButtonLayer = v.layer
@@ -53,7 +53,7 @@ class UitlCommon: NSObject {
         
         _border.lineWidth = borderWidth
         
-        _border.lineCap = "round"
+        _border.lineCap = CAShapeLayerLineCap(rawValue: "round")
         
         _border.lineDashPattern = [NSNumber(value: 2 as Int32),NSNumber(value: 2 as Int32)]
         
@@ -61,7 +61,7 @@ class UitlCommon: NSObject {
 
     }
 
-    class func isNull( _ value: String) -> Bool {
+    @objc class func isNull( _ value: String) -> Bool {
 
         let str : NSString = NSString(string: value)
         if (str.isEqual( to: "(null)")) {
@@ -79,7 +79,7 @@ class UitlCommon: NSObject {
 
     }
     
-    class func isVaildePhoneNum(_ phoneNum: String) -> Bool{
+    @objc class func isVaildePhoneNum(_ phoneNum: String) -> Bool{
     
         let mobileRegex = "^(0|86|17951)?(13[0-9]|15[012356789]|17[0678]|18[0-9]|14[57])[0-9]{8}$"
         let mobileTest = NSPredicate(format:"SELF MATCHES %@",mobileRegex)
@@ -87,7 +87,7 @@ class UitlCommon: NSObject {
         return mobileTest.evaluate(with: phoneNum)
     }
     
-    class func closeAllKeybord(){
+    @objc class func closeAllKeybord(){
     
     
         for window in UIApplication.shared.windows {
@@ -98,7 +98,7 @@ class UitlCommon: NSObject {
     }
     
     
-    class func searchInputViewAndClose(_ viewArray : NSArray){
+    @objc class func searchInputViewAndClose(_ viewArray : NSArray){
     
         for view in viewArray{
         
@@ -172,7 +172,7 @@ class UitlCommon: NSObject {
     */
     
     //用于作输入限制
-    class func getCurrentTextFiledText(_ currentStr: String,newText: String) ->String{
+    @objc class func getCurrentTextFiledText(_ currentStr: String,newText: String) ->String{
     
         let newStr = NSMutableString(string: currentStr)
         if newText == "" {
@@ -190,7 +190,7 @@ class UitlCommon: NSObject {
         return newStr as String
     }
     
-    class func createImageWithColor(_ color: UIColor) -> UIImage{
+    @objc class func createImageWithColor(_ color: UIColor) -> UIImage{
     
         let rect = CGRect(x: 0.0, y: 0.0, width: 2.0, height: 2.0)//CGRect
         UIGraphicsBeginImageContext(rect.size)
@@ -204,7 +204,7 @@ class UitlCommon: NSObject {
         return theImage!;
     }
     
-    class  func setKeyStringAttr(_ keyString: String?,fullStr: String,keyColor: UIColor,otherColor: UIColor) -> NSMutableAttributedString{
+    @objc class  func setKeyStringAttr(_ keyString: String?,fullStr: String,keyColor: UIColor,otherColor: UIColor) -> NSMutableAttributedString{
         
         var key : String!
         if keyString == nil ||  UitlCommon.isNull(keyString!){
@@ -219,13 +219,13 @@ class UitlCommon: NSObject {
         let matches  = regex.matches(in: fullStr, options: .reportCompletion, range: NSMakeRange(0, (fullStr as NSString).length))
         
         let string = NSMutableAttributedString(string: fullStr)
-        string.addAttribute(NSForegroundColorAttributeName, value: otherColor, range:  NSMakeRange(0, (fullStr as NSString).length))
+        string.addAttribute(NSAttributedString.Key.foregroundColor, value: otherColor, range:  NSMakeRange(0, (fullStr as NSString).length))
     
 
         for (_,match) in matches.enumerated() {
         
             let matchRange = match.range
-            string.addAttribute(NSForegroundColorAttributeName, value: keyColor, range: matchRange)
+            string.addAttribute(NSAttributedString.Key.foregroundColor, value: keyColor, range: matchRange)
         }
         
         return string;

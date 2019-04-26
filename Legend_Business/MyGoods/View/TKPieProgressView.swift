@@ -64,8 +64,8 @@ class TKPieProgressView: UIView, TKColorable, TKStrokable {
         let lazyBorderLayer = CAShapeLayer()
         lazyBorderLayer.path = UIBezierPath.init(roundedRect: CGRect(x: self.lineWidth/2, y: self.lineWidth/2, width: self.bounds.width - self.lineWidth, height: self.bounds.height - self.lineWidth), cornerRadius: CGFloat(self.pieRadius) - self.lineWidth/2).cgPath
         lazyBorderLayer.lineWidth = self.lineWidth
-        lazyBorderLayer.lineCap = kCALineCapRound
-        lazyBorderLayer.lineJoin = kCALineJoinRound
+        lazyBorderLayer.lineCap = CAShapeLayerLineCap.round
+        lazyBorderLayer.lineJoin = CAShapeLayerLineJoin.round
         lazyBorderLayer.strokeColor = self.color.cgColor
         lazyBorderLayer.fillColor = UIColor.clear.cgColor
         lazyBorderLayer.strokeStart = 0
@@ -81,8 +81,8 @@ class TKPieProgressView: UIView, TKColorable, TKStrokable {
         let lazyPieLayer = CAShapeLayer()
         lazyPieLayer.path = UIBezierPath(roundedRect: CGRect(x: self.lineWidth/2 + self.pieInset + innerPieRadius, y: self.lineWidth/2 + self.pieInset + innerPieRadius, width: innerPieRadius * 2, height: innerPieRadius * 2), cornerRadius: innerPieRadius).cgPath
         lazyPieLayer.lineWidth = innerPieRadius * 2
-        lazyPieLayer.lineCap = kCALineCapButt
-        lazyPieLayer.lineJoin = kCALineJoinRound
+        lazyPieLayer.lineCap = CAShapeLayerLineCap.butt
+        lazyPieLayer.lineJoin = CAShapeLayerLineJoin.round
         lazyPieLayer.strokeColor = self.color.cgColor
         lazyPieLayer.fillColor = UIColor.clear.cgColor
         lazyPieLayer.strokeStart = 0

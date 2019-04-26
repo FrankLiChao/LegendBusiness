@@ -23,7 +23,7 @@ class AddBankCardController: BaseViewController {
         backButton.frame = CGRect(x: 0, y: 0, width: 60, height: 44);
 
         backButton.contentHorizontalAlignment = .left;
-        backButton.setImage(UIImage(named: "back"), for: UIControlState())
+        backButton.setImage(UIImage(named: "back"), for: UIControl.State())
         backButton.addTarget(self, action: #selector(AddBankCardController.back), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
         
@@ -31,7 +31,7 @@ class AddBankCardController: BaseViewController {
         
     }
 
-    func back(){
+    @objc func back(){
     
     
         if bFromCash != nil && bFromCash! {

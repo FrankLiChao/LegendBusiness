@@ -21,7 +21,7 @@ class WeekBonusViewController: BaseViewController {
         self.title = "周分红管理"
         self.setBackButton()
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "帮助", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.clickHelpEvent))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "帮助", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.clickHelpEvent))
         
         self.endorseBtn.addTarget(self, action: #selector(self.clickEndroseEvent), for: .touchUpInside)
         
@@ -38,7 +38,7 @@ class WeekBonusViewController: BaseViewController {
         let dict = ["device_id":SaveEngine.getDeviceUUID(),
                     "token":SaveEngine.getToken()]
         self.showHud(in: self.view, hint: "")
-        self.requestHTTPData(self.getHttpUrl("Api/Share/getSellerShareInfo"), parameters:dict, success:{(response:Any) in
+        self.requestHTTPData(self.getHttpUrl("Api/Share/getSellerShareInfo"), parameters:dict as [AnyHashable : Any], success:{(response:Any) in
             self.hideHud()
             print(response)
             self.weekBonusModel = WeekBonusModel.parseResponse(response)
@@ -64,7 +64,7 @@ class WeekBonusViewController: BaseViewController {
         }
     }
     
-    func clickMoneyEvent() -> Void {//点击分红金额
+    @objc func clickMoneyEvent() -> Void {//点击分红金额
         guard (self.weekBonusModel) != nil else {
             let bonusVc = BonusMoneyViewController()
             bonusVc.seller_id = self.weekBonusModel.seller_id
@@ -88,7 +88,7 @@ class WeekBonusViewController: BaseViewController {
         }
     }
     
-    func clickEndroseEvent() -> Void { //点击代言周期
+    @objc func clickEndroseEvent() -> Void { //点击代言周期
         if !self.weekBonusModel.seller_id.isEmpty {
             let endorseVc = EndorseCycleViewController()
             endorseVc.seller_id = self.weekBonusModel.seller_id
@@ -103,14 +103,14 @@ class WeekBonusViewController: BaseViewController {
         }
     }
     
-    func clickHelpEvent() -> Void {
+    @objc func clickHelpEvent() -> Void {
         print("点击帮助按钮")
 //        let alterView = UIAlertView.init(title: "代言管理规则", message: "1.代言规则只适用于可代言产品，非可代言产品不参与\n2.代言规则关系买家用户的周分红收益，在代言期间，买家购买了商家旗下的任意一款可代言产品，即完成代言，并根据买家推荐人数享受相应的周分红收益\n3.所有可代言商品的代言周期为固定周期，每周根据买家购买和分享情况进行一次分红，分红金额为固定金额，若需修改代言周期与分红金额，需向平台申请\n4.设置合理的代言周期与分红金额有助于买家用户完成购买任务与分享任务\n5.本规则最终解释权归平台方所有", delegate: nil, cancelButtonTitle: "知道了")
 //        alterView.show()
         
         let nib = UINib(nibName: "PopView", bundle: nil)
         let view:PopView = nib.instantiate(withOwner: self, options: nil)[0] as! PopView
-        view.backgroundColor = UIColor.init(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0)
+        view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0)
         view.frame = CGRect(x: 0, y: 0, width:self.view.frame.width , height:self.view.frame.height)
         self.view.addSubview(view)
     }

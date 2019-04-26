@@ -24,7 +24,7 @@ class GoodsAttrTableViewCell: UITableViewCell {
         self.backgroundColor = .clear
         self.contentView.backgroundColor = .white
         
-        let attr = [NSForegroundColorAttributeName: Configure.SYS_UI_COLOR_PLACEHOLDER()]
+        let attr = [NSAttributedString.Key.foregroundColor: Configure.SYS_UI_COLOR_PLACEHOLDER()]
         self.attrNameTextField.attributedPlaceholder = NSAttributedString(string: "请输入规格", attributes: attr)
         self.attrPriceTextField.attributedPlaceholder = NSAttributedString(string: "请输入价格", attributes: attr)
         self.stockTextField.attributedPlaceholder = NSAttributedString(string: "请输入库存量", attributes: attr)

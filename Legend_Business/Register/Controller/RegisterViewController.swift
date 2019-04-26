@@ -195,7 +195,7 @@ class RegisterViewController: BaseViewController {
         
     }
     
-    func verifySendTimer(_ timers : Timer){
+    @objc func verifySendTimer(_ timers : Timer){
         
         DispatchQueue.main.async { () -> Void in
             
@@ -206,10 +206,10 @@ class RegisterViewController: BaseViewController {
                 self.timer!.invalidate();
                 
                 self.isWaitingVerifyCode = false
-                self.verifiButton?.setTitle("获取验证码", for: UIControlState())
+                self.verifiButton?.setTitle("获取验证码", for: UIControl.State())
             }
             else{
-                self.verifiButton?.setTitle(String(self.myCountdown!), for: UIControlState())
+                self.verifiButton?.setTitle(String(self.myCountdown!), for: UIControl.State())
             }
         }
         
@@ -246,13 +246,13 @@ class RegisterViewController: BaseViewController {
                     
                     DispatchQueue.main.async { () -> Void in
                         
-                        self.verifiButton?.setTitle(String(self.countdown), for: UIControlState())
+                        self.verifiButton?.setTitle(String(self.countdown), for: UIControl.State())
                     }
                     
                     self.timer = Timer(timeInterval:1, target: self, selector: #selector(RegisterViewController.verifySendTimer(_:)), userInfo: nil, repeats: true)
                     let runloop = RunLoop.current
                     
-                    runloop.add(self.timer!, forMode:RunLoopMode.commonModes)
+                    runloop.add(self.timer!, forMode:.common)
                     runloop.run()
                     
                     

@@ -24,7 +24,7 @@ class PopView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.bgView.backgroundColor = UIColor.init(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.5)
+        self.bgView.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
         
         self.alterView.layer.cornerRadius = 6
         self.alterView.layer.masksToBounds = true
@@ -43,7 +43,7 @@ class PopView: UIView {
 //        })
     }
     
-    func dissMissPopView() -> Void {
+    @objc func dissMissPopView() -> Void {
         UIView.animate(withDuration: 0.25, animations: {
             self.alpha = 0
             self.alterView.alpha = 0

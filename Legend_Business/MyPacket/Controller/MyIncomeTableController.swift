@@ -40,7 +40,7 @@ class MyIncomeTableController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func loadData(){
+    @objc func loadData(){
         weak var weakSekf = self
         
         self.showHud(in: UIApplication.shared.keyWindow,hint: "")

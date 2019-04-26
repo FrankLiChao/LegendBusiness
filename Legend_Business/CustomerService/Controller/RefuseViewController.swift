@@ -38,7 +38,7 @@ class RefuseViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         self.refuseTx.layer.borderWidth = 0.5
         let leftview = UIImageView(image: UIImage(named: "normalImage"))
         leftview.frame = CGRect(x: 0, y: 0, width: 10.0, height: 10.0)
-        self.refuseTx.leftViewMode = UITextFieldViewMode.always
+        self.refuseTx.leftViewMode = UITextField.ViewMode.always
         self.refuseTx.leftView = leftview
         
         
@@ -51,7 +51,7 @@ class RefuseViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         self.sureBtn.addTarget(self, action: #selector(self.clickSureButtonEvent), for: .touchUpInside)
     }
     
-    func clickSureButtonEvent() -> Void {
+    @objc func clickSureButtonEvent() -> Void {
         if (self.refuseTx.text?.isEmpty)! {
             self.showHint("请输入拒绝原因")
             return
@@ -81,7 +81,7 @@ class RefuseViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         }
     }
     
-    func clickSelectButtonEvent(button_:UIButton) -> Void {
+    @objc func clickSelectButtonEvent(button_:UIButton) -> Void {
         self.tableView = UITableView(frame: CGRect(x: button_.frame.minX, y: button_.frame.minY, width: button_.frame.width, height: 0), style: .plain)
         self.tableView.delegate = self
         self.tableView.dataSource = self

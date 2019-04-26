@@ -54,7 +54,7 @@ class GoodsMoreView: UIView {
     }
     
     
-    func tapBack(){
+    @objc func tapBack(){
     
         self.removeFromSuperview()
     }
@@ -97,7 +97,7 @@ class GoodsMoreView: UIView {
             
             previewButton.frame = CGRect(x: 15, y: 0, width: CGFloat(buttonWidth), height: 50)
             previewButton.addTarget(self, action: #selector(GoodsMoreView.clicEdit(_:)), for: .touchUpInside)
-            previewButton.setTitleColor(UIColor.white, for: UIControlState())
+            previewButton.setTitleColor(UIColor.white, for: UIControl.State())
             previewButton.titleLabel?.font = UIFont.systemFont(ofSize: 12)
             previewButton.setUpImageDownTitle(UIImage(named: "编辑")!, title: "编辑")
             
@@ -114,7 +114,7 @@ class GoodsMoreView: UIView {
     
             downButton.frame = CGRect(x: previewButton.frame.size.width + previewButton.frame.origin.x, y: 0, width: CGFloat(buttonWidth), height: 50)
             downButton.addTarget(self, action: #selector(GoodsMoreView.clickShelves(_:)), for: .touchUpInside)
-            downButton.setTitleColor(UIColor.white, for: UIControlState())
+            downButton.setTitleColor(UIColor.white, for: UIControl.State())
             downButton.titleLabel?.font = UIFont.systemFont(ofSize: 12)
             downButton.setUpImageDownTitle(UIImage(named: "上架")!, title: "上架")
             
@@ -124,7 +124,7 @@ class GoodsMoreView: UIView {
        
             downButton.frame = CGRect(x: previewButton.frame.size.width + previewButton.frame.origin.x, y: 0, width: CGFloat(buttonWidth), height: 50)
             downButton.addTarget(self, action: #selector(GoodsMoreView.clickDown(_:)), for: .touchUpInside)
-            downButton.setTitleColor(UIColor.white, for: UIControlState())
+            downButton.setTitleColor(UIColor.white, for: UIControl.State())
             downButton.titleLabel?.font = UIFont.systemFont(ofSize: 12)
             downButton.setUpImageDownTitle(UIImage(named: "下架")!, title: "下架")
             
@@ -139,7 +139,7 @@ class GoodsMoreView: UIView {
         let extensionButton = UIButton(type: .custom)
         extensionButton.frame = CGRect(x: downButton.frame.size.width + downButton.frame.origin.x, y: 0, width: CGFloat(buttonWidth), height: 50)
         extensionButton.addTarget(self, action: #selector(GoodsMoreView.clickExtension(_:)), for: .touchUpInside)
-        extensionButton.setTitleColor(UIColor.white, for: UIControlState())
+        extensionButton.setTitleColor(UIColor.white, for: UIControl.State())
         extensionButton.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         extensionButton.setUpImageDownTitle(UIImage(named: "推广")!, title: "推广")
         
@@ -149,7 +149,7 @@ class GoodsMoreView: UIView {
         let deleteButton = UIButton(type: .custom)
         deleteButton.frame = CGRect(x: extensionButton.frame.size.width + extensionButton.frame.origin.x, y: 0, width: CGFloat(buttonWidth), height: 50)
         deleteButton.addTarget(self, action: #selector(GoodsMoreView.clickDelete(_:)), for: .touchUpInside)
-        deleteButton.setTitleColor(UIColor.white, for: UIControlState())
+        deleteButton.setTitleColor(UIColor.white, for: UIControl.State())
         deleteButton.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         deleteButton.setUpImageDownTitle(UIImage(named: "删除白")!, title: "删除")
         
@@ -160,7 +160,7 @@ class GoodsMoreView: UIView {
     }
     
     
-    func clicEdit(_ button : UIButton?){
+    @objc func clicEdit(_ button : UIButton?){
     
         if self.delegate != nil && delegate!.responds(to: #selector(GoodsMoreViewDelegate.clickEditButton(_:index:))) {
         
@@ -170,14 +170,14 @@ class GoodsMoreView: UIView {
         self.tapBack()
     
     }
-    func clickDown(_ button : UIButton?){
+    @objc func clickDown(_ button : UIButton?){
         if self.delegate != nil && delegate!.responds(to: #selector(GoodsMoreViewDelegate.clickDownButton(_:index:))) {
             
             delegate!.clickDownButton!(self, index: currentIndex!)
         }
         self.tapBack()
     }
-    func clickDelete(_ button : UIButton?){
+    @objc func clickDelete(_ button : UIButton?){
         
         if self.delegate != nil && delegate!.responds(to: #selector(GoodsMoreViewDelegate.clickDeleteButton(_:index:))) {
             
@@ -186,7 +186,7 @@ class GoodsMoreView: UIView {
         self.tapBack()
     }
     
-    func clickExtension(_ button : UIButton?){
+    @objc func clickExtension(_ button : UIButton?){
         
         if self.delegate != nil && delegate!.responds(to: #selector(GoodsMoreViewDelegate.clickExtensionButton(_:index:))) {
             delegate!.clickExtensionButton!(self, index: currentIndex!)
@@ -195,7 +195,7 @@ class GoodsMoreView: UIView {
     
     }
     
-    func clickShelves(_ button : UIButton?){
+    @objc func clickShelves(_ button : UIButton?){
         if self.delegate != nil && delegate!.responds(to: #selector(GoodsMoreViewDelegate.clickShelvesButton(_:index:))) {
             delegate!.clickShelvesButton!(self, index: currentIndex!)
         }

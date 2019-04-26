@@ -51,7 +51,7 @@ class TextEditeCell: UITableViewCell {
         return true
     }
     
-    func companyNameChanged(_ textFile: UITextField) {
+    @objc func companyNameChanged(_ textFile: UITextField) {
     
         if delegate != nil && delegate!.responds(to: #selector(TextEditeCellDelegate.companyNameChange(_:))) {
             delegate!.companyNameChange!(textFile.text)
@@ -65,7 +65,7 @@ class TextEditeCell: UITableViewCell {
 //        }
 //        
 //    }
-    func companyPhoneChanged(_ textFile: UITextField){
+    @objc func companyPhoneChanged(_ textFile: UITextField){
         
         if delegate != nil && delegate!.responds(to: #selector(TextEditeCellDelegate.companyPhoneChange(_:))) {
             delegate!.companyPhoneChange!(textFile.text)

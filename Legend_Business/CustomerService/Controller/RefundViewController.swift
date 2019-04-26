@@ -102,7 +102,7 @@ class RefundViewController: BaseViewController,UITableViewDataSource,UITableView
         self.myTableView.separatorStyle = .none
         self.myTableView.estimatedRowHeight = 200;
         self.myTableView.backgroundColor = self.backgroundColor()
-        self.myTableView.rowHeight = UITableViewAutomaticDimension;
+        self.myTableView.rowHeight = UITableView.automaticDimension;
         self.myTableView.tableFooterView = UIView.init()
         
         self.agreeBtn.layer.borderWidth = 0.5
@@ -365,7 +365,7 @@ class RefundViewController: BaseViewController,UITableViewDataSource,UITableView
         cell.countDownBtn.setTitle(timeStr, for: .normal)
     }
     
-    func clickAgreeButton(button_:UIButton) -> Void {
+    @objc func clickAgreeButton(button_:UIButton) -> Void {
         print("点击同意按钮")
         if button_.titleLabel?.text == "同意申请" {
             let userModel:UserInfoModel = SaveEngine.getUserInfo()
@@ -389,7 +389,7 @@ class RefundViewController: BaseViewController,UITableViewDataSource,UITableView
         
     }
     
-    func clickContactButtonEvent(button_:UIButton) -> Void {
+    @objc func clickContactButtonEvent(button_:UIButton) -> Void {
         print("点击联系买家")
         if self.sellerInfoModel == nil {
             let alter = UIAlertView.init(title: "提示", message: "暂无买家信息", delegate: nil, cancelButtonTitle: "知道了")
@@ -404,7 +404,7 @@ class RefundViewController: BaseViewController,UITableViewDataSource,UITableView
         }
     }
     
-    func clickRefuseBtnEvent(button_:UIButton) -> Void {//RefuseViewController
+    @objc func clickRefuseBtnEvent(button_:UIButton) -> Void {//RefuseViewController
         print("点击拒绝申请按钮")
         if button_.titleLabel?.text == "已拒绝" {
             let alter = UIAlertView.init(title: "提示", message: "您已拒绝", delegate: nil, cancelButtonTitle: "知道了")
@@ -454,21 +454,4 @@ class RefundViewController: BaseViewController,UITableViewDataSource,UITableView
             self.navigationController?.pushViewController(ShippingAddressViewController(), animated: true)
         }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

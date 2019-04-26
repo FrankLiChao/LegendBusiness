@@ -40,7 +40,7 @@ class MyIncomeController: BaseViewController {
     }
 
     
-    func clickIncomeList(){
+    @objc func clickIncomeList(){
     
         let story : UIStoryboard = UIStoryboard(name: "Store", bundle: nil)
         let vc = story.instantiateViewController(withIdentifier: "IncomeListController") as!  IncomeListController
